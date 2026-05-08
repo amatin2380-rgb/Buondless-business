@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Boundless Business: educación financiera clara para personas que quieren entender el dinero, los negocios, la inversión y el crecimiento desde cero." />
+  <meta name="theme-color" content="#050505" />
+  <title>Boundless Business | Educación Financiera desde Cero</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #050505;
+      --black-2: #0b0b0b;
+      --black-3: #111111;
+      --gold: #c9a227;
+      --gold-2: #f2d675;
+      --white: #ffffff;
+      --muted: rgba(255, 255, 255, 0.72);
+      --soft: rgba(255, 255, 255, 0.10);
+      --line: rgba(201, 162, 39, 0.26);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.52);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--white);
+      background:
+        radial-gradient(circle at top left, rgba(201, 162, 39, 0.18), transparent 34rem),
+        radial-gradient(circle at 85% 12%, rgba(242, 214, 117, 0.10), transparent 28rem),
+        var(--black);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .gold-text {
+      background: linear-gradient(115deg, #9f7615, #f5df8a, #c9a227, #fff0a8, #a97818);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .eyebrow {
+      color: var(--gold-2);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin: 0 0 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.55rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      margin: 0 0 1rem;
+      font-weight: 900;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 720px;
+      margin: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0.88rem 1.35rem;
+      border-radius: 999px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-primary {
+      color: #111;
+      background: linear-gradient(135deg, #c9a227, #f2d675, #b98b1d);
+      box-shadow: 0 16px 46px rgba(201, 162, 39, 0.27);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 22px 60px rgba(201, 162, 39, 0.35); }
+
+    .btn-secondary {
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover { transform: translateY(-2px); border-color: var(--gold); }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(5,5,5,0.78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.98rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #fff0a8, #c9a227 42%, #6b4d0e 100%);
+      box-shadow: 0 0 0 4px rgba(201,162,39,0.12);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      color: rgba(255,255,255,0.68);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover { color: var(--gold-2); }
+
+    .hero {
+      padding: 5.2rem 0 3.8rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5.7rem);
+      line-height: 0.96;
+      letter-spacing: -0.075em;
+      margin: 0 0 1.35rem;
+      font-weight: 900;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 0 1.8rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 2rem;
+    }
+
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 2rem;
+      max-width: 650px;
+    }
+
+    .proof-item {
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.045);
+      border-radius: 18px;
+      padding: 0.95rem;
+      color: rgba(255,255,255,0.70);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .book-wrap {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 420px;
+    }
+
+    .book-glow {
+      position: absolute;
+      width: 74%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,162,39,0.32), transparent 64%);
+      filter: blur(4px);
+    }
+
+    .book-card {
+      position: relative;
+      width: min(370px, 84vw);
+      border-radius: 28px;
+      padding: 0.8rem;
+      background: linear-gradient(145deg, rgba(201,162,39,0.55), rgba(255,255,255,0.12), rgba(201,162,39,0.22));
+      box-shadow: var(--shadow);
+      transform: rotate(1.8deg);
+    }
+
+    .book-card img {
+      border-radius: 20px;
+      width: 100%;
+      aspect-ratio: 4/5.2;
+      object-fit: cover;
+      background: #111;
+    }
+
+    .fallback-cover {
+      display: none;
+      min-height: 480px;
+      border-radius: 20px;
+      place-items: center;
+      text-align: center;
+      padding: 2rem;
+      background:
+        linear-gradient(145deg, rgba(201,162,39,0.18), rgba(0,0,0,0.95)),
+        #111;
+      border: 1px solid rgba(201,162,39,0.35);
+    }
+
+    .fallback-cover strong {
+      display: block;
+      font-size: 2.5rem;
+      line-height: 1;
+      letter-spacing: -0.08em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-soft {
+      background: linear-gradient(180deg, rgba(255,255,255,0.032), rgba(255,255,255,0.012));
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid rgba(201,162,39,0.25);
+      background: linear-gradient(180deg, rgba(255,255,255,0.065), rgba(255,255,255,0.025));
+      border-radius: var(--radius);
+      padding: clamp(1.25rem, 3vw, 2rem);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .quote-panel {
+      border-left: 4px solid var(--gold);
+      background: rgba(201,162,39,0.08);
+      padding: 1.2rem 1.25rem;
+      border-radius: 18px;
+      color: rgba(255,255,255,0.78);
+      margin-top: 1.25rem;
+    }
+
+    .check-list {
+      list-style: none;
+      margin: 1.35rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0.9rem;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .check-list span {
+      color: var(--gold-2);
+      font-weight: 900;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.045);
+      border-radius: 22px;
+      padding: 1.35rem;
+      min-height: 230px;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201,162,39,0.60);
+      background: rgba(201,162,39,0.075);
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(201,162,39,0.13);
+      border: 1px solid rgba(201,162,39,0.30);
+      margin-bottom: 1rem;
+      font-size: 1.35rem;
+    }
+
+    .card h3, .chapter h3 {
+      margin: 0 0 0.65rem;
+      font-size: 1.05rem;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    .card p, .chapter p {
+      margin: 0;
+      color: rgba(255,255,255,0.67);
+      font-size: 0.96rem;
+    }
+
+    .chapters {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .chapter {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(201,162,39,0.28);
+      border-radius: 24px;
+      padding: 1.45rem;
+      background:
+        radial-gradient(circle at top left, rgba(201,162,39,0.14), transparent 16rem),
+        rgba(255,255,255,0.04);
+      min-height: 250px;
+    }
+
+    .chapter-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #111;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .method {
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.04);
+      border-radius: 20px;
+      padding: 1.2rem;
+    }
+
+    .method h3 {
+      color: var(--gold-2);
+      margin: 0 0 0.6rem;
+      font-size: 1rem;
+    }
+
+    .method p { margin: 0; color: rgba(255,255,255,0.66); font-size: 0.92rem; }
+
+    .author-grid {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .author-photo {
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(201,162,39,0.28);
+      box-shadow: var(--shadow);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .author-photo img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 1.6rem;
+    }
+
+    .social-row a {
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 999px;
+      padding: 0.7rem 1rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .social-row a:hover {
+      color: var(--gold-2);
+      border-color: rgba(201,162,39,0.5);
+    }
+
+    .cta-final {
+      padding: 5rem 0;
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(201,162,39,0.24), transparent 32rem),
+        linear-gradient(135deg, #090909, #15110a);
+      border-top: 1px solid rgba(201,162,39,0.24);
+      border-bottom: 1px solid rgba(201,162,39,0.24);
+    }
+
+    .cta-final h2 {
+      font-size: clamp(2.4rem, 6vw, 4.7rem);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+      margin: 0 auto 1rem;
+      max-width: 820px;
+      font-weight: 900;
+    }
+
+    .cta-final p {
+      color: var(--muted);
+      margin: 0 auto 1.8rem;
+      max-width: 560px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 20px;
+      padding: 1.25rem;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .contact-card strong { display: block; color: var(--gold-2); margin-bottom: 0.25rem; }
+    .contact-card a { color: rgba(255,255,255,0.78); word-break: break-word; }
+
+    footer {
+      padding: 2rem 0;
+      color: rgba(255,255,255,0.54);
+      font-size: 0.92rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover { color: var(--gold-2); }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero { padding-top: 3.2rem; }
+      .hero-grid, .split, .author-grid { grid-template-columns: 1fr; }
+      .hero-grid { gap: 2.6rem; }
+      .hero h1, .hero .subtitle, .eyebrow { text-align: center; }
+      .cta-row { justify-content: center; }
+      .hero-proof, .cards-grid, .chapters, .method-grid, .contact-grid { grid-template-columns: 1fr; }
+      .book-wrap { min-height: auto; }
+      .book-card { transform: none; }
+      .section { padding: 4rem 0; }
+      .author-grid { gap: 1.6rem; }
+      .author-photo { max-width: 440px; margin: 0 auto; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 24px, 1120px); }
+      .nav-inner { padding: 0.72rem 0; }
+      .brand { font-size: 0.82rem; }
+      .brand-mark { width: 28px; height: 28px; }
+      .nav .btn { display: none; }
+      .hero { padding: 2.7rem 0 2.8rem; }
+      .hero h1 { font-size: 3rem; }
+      .hero .subtitle { font-size: 1rem; }
+      .btn { width: 100%; }
+      .proof-item { text-align: center; }
+      .cards-grid, .chapters, .method-grid { gap: 0.85rem; }
+      .card, .chapter, .panel { border-radius: 20px; }
+      .card { min-height: auto; }
+      .fallback-cover { min-height: 390px; }
+      .footer-grid { align-items: flex-start; }
+      .footer-links { flex-direction: column; gap: 0.45rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#inicio" aria-label="Boundless Business inicio">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Boundless Business</span>
+      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#que-es">Qué es</a>
+        <a href="#aprendizaje">Aprenderás</a>
+        <a href="#capitulos">Capítulos</a>
+        <a href="#autora">Autora</a>
+      </nav>
+      <a class="btn btn-primary" href="https://go.hotmart.com/R105688946V" target="_blank" rel="noopener noreferrer">Comprar ahora</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Educación financiera desde cero</p>
+          <h1>Transformando el miedo en <span class="gold-text">conocimiento.</span></h1>
+          <p class="subtitle">Boundless Business es un libro creado para personas que crecieron sin educación financiera real y quieren entender el dinero, los negocios, la inversión y el crecimiento de una manera clara, humana y fácil de comprender.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://go.hotmart.com/R105688946V" target="_blank" rel="noopener noreferrer">Comprar en Hotmart</a>
+            <a class="btn btn-secondary" href="#capitulos">Ver capítulos</a>
+          </div>
+          <div class="hero-proof" aria-label="Beneficios principales">
+            <div class="proof-item">Sin experiencia previa</div>
+            <div class="proof-item">Lenguaje simple</div>
+            <div class="proof-item">Acceso digital</div>
+          </div>
+        </div>
+
+        <div class="book-wrap" aria-label="Portada del libro">
+          <div class="book-glow" aria-hidden="true"></div>
+          <div class="book-card">
+            <img src="https://lh3.googleusercontent.com/aida/ADBb0uj3zK72wmpR6oQJiUZfHK57lQRYuA32gNcMRcfnJBLgRf0rksUmk8KEuYDYxVm7G7LH7Keg1EbfJ6cPbXcbHJ-IeN3DiOJosNNql0vqigbvvzvOVuf0AHCiXC-XzItTJ5JyUkEMCZX80l-1LHWKX8q1Uo7-jHKq4KDfnF1M7xuSfRyN0fn6lPGc1bB1VR3wJF1kOoJ61PbyeUoaiwsaDjoIcSCt2cIWepa7xR8T8RhNSk1vL4cxBOhXgxLSVC6nK77XYluA8lp_nw" alt="Portada del libro Boundless Business" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+            <div class="fallback-cover">
+              <div>
+                <strong class="gold-text">Boundless Business</strong>
+                <p>Transformando el miedo en conocimiento.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="que-es" class="section section-soft">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Resumen</p>
+          <h2 class="section-title">¿Qué es <span class="gold-text">Boundless Business?</span></h2>
+          <p class="lead">Es un libro diseñado para explicar conceptos financieros y empresariales de manera simple, emocional y fácil de entender.</p>
+        </div>
+        <div class="panel">
+          <p>Muchas personas aprendieron a trabajar, pero nunca aprendieron cómo funciona el dinero, los negocios, las oportunidades o el crecimiento.</p>
+          <ul class="check-list">
+            <li><span>✓</span> No necesitas experiencia.</li>
+            <li><span>✓</span> No necesitas estudios financieros.</li>
+            <li><span>✓</span> Solo necesitas la decisión de empezar a pensar diferente.</li>
+          </ul>
+          <div class="quote-panel">Porque el mundo está cambiando rápidamente. Boundless Business busca despertar una nueva mentalidad: más clara, más estratégica y más preparada para el futuro.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="aprendizaje" class="section">
+      <div class="container">
+        <p class="eyebrow">Lo que aprenderás en el interior</p>
+        <h2 class="section-title">Conocimiento financiero explicado sin complicarte.</h2>
+        <p class="lead">La web debe prometer claridad, no milagros. Este enfoque vende mejor a largo plazo porque construye confianza.</p>
+
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">💡</div>
+            <h3>Mentalidad financiera</h3>
+            <p>Aprende a cambiar la forma en que ves el dinero, el trabajo y las oportunidades.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">💳</div>
+            <h3>Administración del dinero</h3>
+            <p>Comprende cómo organizar, cuidar y dirigir mejor tus recursos.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">📈</div>
+            <h3>Introducción a inversiones</h3>
+            <p>Conoce principios básicos de inversión sin promesas falsas ni lenguaje complicado.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🏢</div>
+            <h3>Pensamiento empresarial</h3>
+            <p>Aprende a observar problemas, crear valor y detectar oportunidades.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🛡️</div>
+            <h3>Protección de mercado</h3>
+            <p>Entiende por qué algunas marcas crecen, se adaptan y permanecen.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🚀</div>
+            <h3>Crecimiento a largo plazo</h3>
+            <p>Descubre cómo la disciplina, la paciencia y el conocimiento pueden transformar generaciones.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodo" class="section section-soft">
+      <div class="container">
+        <p class="eyebrow">Descubre el método en acción</p>
+        <h2 class="section-title">Una aproximación clara y humana.</h2>
+        <p class="lead">Boundless Business combina educación financiera, mentalidad de crecimiento, visión empresarial y desarrollo personal en un formato moderno, emocional y fácil de comprender.</p>
+
+        <div class="method-grid">
+          <div class="method"><h3>Educación financiera</h3><p>Entiende los números y las decisiones detrás del dinero.</p></div>
+          <div class="method"><h3>Mentalidad de crecimiento</h3><p>Rompe limitaciones aprendidas y empieza a pensar con estrategia.</p></div>
+          <div class="method"><h3>Visión empresarial</h3><p>Aprende a crear valor, observar tendencias y construir oportunidades.</p></div>
+          <div class="method"><h3>Desarrollo personal</h3><p>Fortalece disciplina, paciencia y claridad para sostener crecimiento.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="capitulos" class="section">
+      <div class="container">
+        <p class="eyebrow">Vista previa de capítulos</p>
+        <h2 class="section-title">Primeros pasos para pensar diferente.</h2>
+        <div class="chapters">
+          <article class="chapter">
+            <div class="chapter-number">1</div>
+            <h3>El despertar financiero</h3>
+            <p>La mentalidad detrás del crecimiento y cómo muchas personas fueron limitadas por falta de conocimiento financiero.</p>
+          </article>
+          <article class="chapter">
+            <div class="chapter-number">2</div>
+            <h3>El dinero como sistema</h3>
+            <p>Cómo funciona realmente el dinero y por qué entenderlo cambia la manera de ver el mundo.</p>
+          </article>
+          <article class="chapter">
+            <div class="chapter-number">3</div>
+            <h3>Mentalidad de inversión</h3>
+            <p>Introducción al pensamiento empresarial, creación de valor, riesgo, paciencia y construcción de oportunidades.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="autora" class="section section-soft">
+      <div class="container author-grid">
+        <div class="author-photo">
+          <img src="https://lh3.googleusercontent.com/aida/ADBb0ui5zUN8Xl4t-qYFg2zvRy3-FphMpXsM7SwjfJcnlcJB_0KB_ATHLzX_6X3zr8LunFTByDq30z45GaNNa0VNFOTLqg2huKm6RfdT1t0pc-L88FA5b7ozQYN4JO2dFiEpYcI0CCVfPwUHOva31PMAmRuywzwkYYH7IUPyIxBTEP-jtuzEYFNIKnZBMoRHHttPyQaaXe9yXBE9yRxatCHJvsiErwW1NROAnygXmk111TLRhqv7rf4StH-B1MVthz2C8NdNsIsB4MRu0A" alt="Amalia Aguilar, creadora de Boundless Business" />
+        </div>
+        <div>
+          <p class="eyebrow">Amalia Aguilar</p>
+          <h2 class="section-title">La mente detrás de <span class="gold-text">Boundless Business.</span></h2>
+          <p class="lead">Amalia Aguilar es la creadora de Boundless Business, un proyecto enfocado en hacer que la educación financiera sea más clara, humana y accesible.</p>
+          <p class="lead" style="margin-top: 1rem;">Su visión busca inspirar a nuevas generaciones, familias y emprendedores a desarrollar conocimiento financiero, pensamiento estratégico y una mentalidad sin límites.</p>
+          <div class="social-row">
+            <a href="https://www.instagram.com/boundlees_business?igsh=Y3B1azBieTY4Z2ll&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://wa.me/14378798599" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="mailto:amatin2380@gmail.com">Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-final">
+      <div class="container">
+        <h2>Empieza tu educación financiera hoy.</h2>
+        <p>Acceso digital a través de Hotmart. Compra segura desde la plataforma y comienza a aprender desde cero.</p>
+        <a class="btn btn-primary" href="https://go.hotmart.com/R105688946V" target="_blank" rel="noopener noreferrer">Comprar ahora en Hotmart</a>
+      </div>
+    </section>
+
+    <section id="contacto" class="section">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h2 class="section-title">¿Tienes alguna pregunta?</h2>
+          <p class="lead">Comunícate directamente por email o WhatsApp. Para una versión más profesional, más adelante conviene usar correo de marca y WhatsApp Business separado.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card"><strong>Email</strong><a href="mailto:amatin2380@gmail.com">amatin2380@gmail.com</a></div>
+          <div class="contact-card"><strong>WhatsApp</strong><a href="https://wa.me/14378798599" target="_blank" rel="noopener noreferrer">+1 (437) 879-8599</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>Boundless Business</strong><br />
+        © 2026 Boundless Business. Todos los derechos reservados.
+      </div>
+      <div class="footer-links">
+        <a href="#que-es">Sobre el libro</a>
+        <a href="#capitulos">Capítulos</a>
+        <a href="#contacto">Contacto</a>
+        <a href="https://go.hotmart.com/R105688946V" target="_blank" rel="noopener noreferrer">Hotmart</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
